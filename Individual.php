@@ -1,30 +1,36 @@
 <?php
 
+require_once "Config.php";
+
 class Individual {
     static private int $current_number = 1;
+    static private $config = null;
 
     public float $fitness;
     public int $personal_number;
     public array $array;
 
     public function __construct(){
+        if(!self::$config){
+            self::$config = Config::getInstance();
+        }
         $this->array = self::generate_array();
         $this->fitness = self::get_fitness();
         $this->personal_number = self::get_number();
     }
 
     static private function generate_array(): array{
-        global $INDIVIDUAL_LENGTH;
+        $ind_length = self::$config->INDIVIDUAL_LENGTH;
         $result = [];
-        for($i=0; $i<$INDIVIDUAL_LENGTH; $i++){
+        for($i=0; $i<$ind_length; $i++){
             $result[] = array_rand([0,1]);
         }
         return $result;
     }
 
     public function get_fitness(): float{
-        global $GOAL;
-        $f = array_sum($this->array)/array_sum($GOAL);
+        $goal = self::$config->GOAL;
+        $f = array_sum($this->array)/array_sum($goal);
         $this->fitness = $f;
         return $f;
     }
@@ -49,15 +55,15 @@ class Individual {
 
     public function mutate_individual(): Individual
     {
-        global $MUTATION_RATE;
-        global $INDIVIDUAL_LENGTH;
+        $mutation_rate = self::$config->MUTATION_RATE;
+        $ind_length = self::$config->INDIVIDUAL_LENGTH;
         // choose how many mutation
-        $mutation_quantity = rand(1, $MUTATION_RATE);
+        $mutation_quantity = rand(1, $mutation_rate);
 
         // choose which genes will be mutated
         $index_array = [];
         for($i=0; $i<$mutation_quantity; $i++){
-            $index_value = rand(0, $INDIVIDUAL_LENGTH-1);
+            $index_value = rand(0, $ind_length-1);
             if(!array_search($index_value, $index_array)) {
                 $index_array[] = $index_value;
             }

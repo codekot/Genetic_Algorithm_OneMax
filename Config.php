@@ -1,14 +1,14 @@
 <?php
 
-$INDIVIDUAL_LENGTH = 10;
-$GOAL = array_map(function (){return 1;}, range(1, $INDIVIDUAL_LENGTH));
-$IND_NUMBER = 1;
-$BORDER = 4;
-$MUTATION_RATE = 1;
-$FITTEST_QUOTE = 4;
-$EVOLUTION_CYCLES = 100;
-$CURRENT_POPULATION = [];
-$ITERATIONS = 1000;
+//$INDIVIDUAL_LENGTH = 10;
+//$GOAL = array_map(function (){return 1;}, range(1, $INDIVIDUAL_LENGTH));
+//$IND_NUMBER = 1;
+//$BORDER = 4;
+//$MUTATION_RATE = 1;
+//$FITTEST_QUOTE = 4;
+//$EVOLUTION_CYCLES = 100;
+//$CURRENT_POPULATION = [];
+//$ITERATIONS = 1000;
 
 class Config{
     private  $INDIVIDUAL_LENGTH = 10;
@@ -39,7 +39,8 @@ class Config{
     protected function __clone(){
     }
 
-    public function setGoal(){
+    public function setGoal(): array
+    {
         return array_map(function (){return 1;}, range(1, $this->INDIVIDUAL_LENGTH));
     }
 
@@ -64,6 +65,3 @@ class Config{
         }
     }
 }
-
-$c = Config::getInstance();
-$c->INDIVIDUAL_LENGTH = 15;
