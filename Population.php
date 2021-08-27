@@ -1,14 +1,23 @@
 <?php
 
+require_once "Config.php";
+require_once "Individual.php";
+
 class Population{
+    static private $config = null;
+
     public array $set;
     public bool $goal_achieved = false;
 
-    public function __construct($size = 10){
-        for ($i=0; $i<$size; $i++){
+    public function __construct(){
+       if(!self::$config){
+            self::$config = Config::getInstance();
+       }
+       $size = self::$config->POPULATION_SIZE;
+       for ($i=0; $i<$size; $i++){
             $this->set[] = new Individual();
-        }
-        $this->choose_fittest();
+       }
+       $this->choose_fittest();
     }
 
     public function choose_fittest(){
@@ -40,11 +49,11 @@ class Population{
 
     function mutate_population(){
         // TODO need to be combed
-        global $FITTEST_QUOTE;
+        $fitness_quote = self::$config->FITTEST_QUOTE;
         // take first four of population and mutate it and fill the second half
         // fifth remain
         // last is random
-        for ($i=0; $i<$FITTEST_QUOTE; $i++){
+        for ($i=0; $i<$fitness_quote; $i++){
             $this->set[$i+5] = $this->set[$i]->mutate_individual();
         }
         $this->set[9] = new Individual();
@@ -52,3 +61,5 @@ class Population{
     }
 
 }
+
+$p = new Population();

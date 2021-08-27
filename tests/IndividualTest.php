@@ -71,4 +71,8 @@ class IndividualTest extends \PHPUnit\Framework\TestCase {
         $this -> assertEquals($i->personal_number + 1, $i_clone->personal_number);
     }
 
+    public function testMutateIndividual(){
+
+    }
+
 }
