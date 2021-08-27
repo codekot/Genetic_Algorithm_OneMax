@@ -72,7 +72,13 @@ class IndividualTest extends \PHPUnit\Framework\TestCase {
     }
 
     public function testMutateIndividual(){
-
+        $i = new Individual();
+        $mutant = $i->mutate_individual();
+        $this -> assertInstanceOf(
+            Individual::class,
+            $mutant);
+        $this -> assertNotEquals($i, $mutant);
+        $this -> assertNotEquals($i->array, $mutant->array);
     }
 
 }

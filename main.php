@@ -16,14 +16,7 @@ require_once  "Individual.php";
 
 require_once "Population.php";
 
-function random_with_probability($p=80): bool {
-    $ans = rand(1,100);
-    if($ans<$p){
-        return true;
-    } else {
-        return false;
-    }
-}
+
 
 
 

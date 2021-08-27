@@ -1,6 +1,7 @@
 <?php
 
 require_once "Config.php";
+require_once "Utils.php";
 
 class Individual {
     static private int $current_number = 1;
