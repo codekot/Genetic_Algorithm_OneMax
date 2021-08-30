@@ -45,7 +45,7 @@ class PopulationTest extends \PHPUnit\Framework\TestCase
 
     function testMutatePopulation(){
         $p = new Population();
-        $this -> assertEquals(1,1);
+        $this -> assertLessThanOrEqual(5,1);
 
     }
 
