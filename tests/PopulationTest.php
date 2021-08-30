@@ -43,4 +43,10 @@ class PopulationTest extends \PHPUnit\Framework\TestCase
         $this -> assertTrue($result);
     }
 
+    function testMutatePopulation(){
+        $p = new Population();
+        $this -> assertEquals(1,1);
+
+    }
+
 }

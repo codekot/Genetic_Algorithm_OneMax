@@ -61,5 +61,3 @@ class Population{
     }
 
 }
-
-$p = new Population();

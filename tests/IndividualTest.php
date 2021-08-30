@@ -14,6 +14,7 @@ class IndividualTest extends \PHPUnit\Framework\TestCase {
         $this->config = Config::getInstance();
         $this->INDIVIDUAL_LENGTH = $this->config->INDIVIDUAL_LENGTH;
         $this->GOAL = $this->config->GOAL;
+        $this->MUTATION_RATE = $this->config->MUTATION_RATE;
     }
 
     protected function tearDown(): void
@@ -78,7 +79,14 @@ class IndividualTest extends \PHPUnit\Framework\TestCase {
             Individual::class,
             $mutant);
         $this -> assertNotEquals($i, $mutant);
-        $this -> assertNotEquals($i->array, $mutant->array);
+        $arrays_diff = array_diff_assoc($i->array, $mutant->array);
+        $this -> assertLessThanOrEqual($this->MUTATION_RATE, count($arrays_diff));
+    }
+
+    public function testMutationWithChangingSetUp(){
+        $this->config->MUTATION_RATE=3;
+        $this -> assertEquals(3, $this->config->MUTATION_RATE);
+        $this -> testMutateIndividual();
     }
 
 }
