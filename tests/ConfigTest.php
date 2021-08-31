@@ -37,6 +37,12 @@ class ConfigTest extends \PHPUnit\Framework\TestCase {
         $this -> assertEquals($c->GOAL, $c2->GOAL);
     }
 
+    function testSetFittestQuote(){
+        $c = Config::getInstance();
+        $this -> expectExceptionMessage("error");
+        $c->FITTEST_QUOTE = 100;
+    }
+
 
 
 

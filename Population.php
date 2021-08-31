@@ -48,11 +48,11 @@ class Population{
     }
 
     function mutate_population(){
-        // TODO need to be combed
         $fitness_quote = self::$config->FITTEST_QUOTE;
-        // take first four of population and mutate it and fill the second half
-        // fifth remain
-        // last is random
+        // first part is highest ranked on quantity of FITTEST_QUOTE
+        // second part remain
+        // third part is mutated
+        // last part is random
         for ($i=0; $i<$fitness_quote; $i++){
             $this->set[$i+5] = $this->set[$i]->mutate_individual();
         }

@@ -17,7 +17,7 @@ class Config{
     public $POPULATION_SIZE = 10;
     public $BORDER = 4;
     public $MUTATION_RATE = 1;
-    public $FITTEST_QUOTE = 4;
+    private $FITTEST_QUOTE = 4;
     public $EVOLUTION_CYCLES = 100;
     public $CURRENT_POPULATION = [];
     public $ITERATIONS = 1000;
@@ -52,6 +52,13 @@ class Config{
             $this->GOAL = $this->setGoal();
         } elseif ($name == "GOAL"){
             throw new Exception("access denied, to change GOAL, change INDIVIDUAL_LENGTH");
+        } elseif ($name == "FITTEST_QUOTE"){
+            throw new Exception("error");
+//            if($value > intval($this->POPULATION_SIZE/2)){
+//                throw new Exception("error");
+//            } else {
+//                $this->FITTEST_QUOTE = $value;
+//            }
         }
     }
 
