@@ -67,7 +67,10 @@ class Config{
             return $this->INDIVIDUAL_LENGTH;
         } elseif ($name == "GOAL"){
             return $this->GOAL;
-        } else {
+        } elseif ($name == "FITTEST_QUOTE"){
+            return $this->FITTEST_QUOTE;
+        }
+        else {
             throw new Exception("invalid property name");
         }
     }
