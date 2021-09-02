@@ -6,6 +6,18 @@ require_once "Population.php";
 
 class PopulationTest extends \PHPUnit\Framework\TestCase
 {
+    private $config;
+
+    protected function setUp(): void
+    {
+        $this->config = Config::getInstance();
+    }
+
+    protected function tearDown(): void
+    {
+        $this->config = null;
+    }
+
     function testNewPopulation(){
         $p = new Population();
         $this -> assertInstanceOf(
@@ -31,7 +43,7 @@ class PopulationTest extends \PHPUnit\Framework\TestCase
 
     function testBestFittestScore(){
         $p = new Population();
-        $best = $p->get_best_fittest_score();
+        $best = $p->get_best_fitness_score();
         $i_fitness = $p->set[0]->get_fitness();
         $this -> assertEquals($i_fitness, $best);
     }
@@ -45,7 +57,11 @@ class PopulationTest extends \PHPUnit\Framework\TestCase
 
     function testMutatePopulation(){
         $p = new Population();
-        $this -> assertLessThanOrEqual(5,1);
+        $p_control = clone $p;
+        $p->mutate_population();
+        $this -> assertNotEquals($p_control,$p);
+        $this -> assertEquals($this->config->POPULATION_SIZE, count($p->set));
+        $this -> assertGreaterThanOrEqual($p->get_best_fitness_score(), $p_control->get_best_fitness_score());
 
     }
 

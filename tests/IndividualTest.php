@@ -12,15 +12,15 @@ class IndividualTest extends \PHPUnit\Framework\TestCase {
     protected function setUp(): void
     {
         $this->config = Config::getInstance();
-        $this->INDIVIDUAL_LENGTH = $this->config->INDIVIDUAL_LENGTH;
-        $this->GOAL = $this->config->GOAL;
+//        $this->INDIVIDUAL_LENGTH = $this->config->INDIVIDUAL_LENGTH;
+//        $this->GOAL = $this->config->GOAL;
     }
 
     protected function tearDown(): void
     {
         $this->config = null;
-        $this->INDIVIDUAL_LENGTH = null;
-        $this->GOAL = null;
+//        $this->INDIVIDUAL_LENGTH = null;
+//        $this->GOAL = null;
     }
 
     public function testNewIndividual(){
@@ -45,7 +45,7 @@ class IndividualTest extends \PHPUnit\Framework\TestCase {
         $this -> assertContains(1, $i->array);
         $this -> assertNotContains(3, $i->array);
 
-        $this -> assertEquals($this->INDIVIDUAL_LENGTH, count($i->array));
+        $this -> assertEquals($this->config->INDIVIDUAL_LENGTH, count($i->array));
 
         $this -> assertLessThanOrEqual(1.0, $i->fitness);
         $this -> assertGreaterThanOrEqual(0.0, $i->fitness);
@@ -54,7 +54,7 @@ class IndividualTest extends \PHPUnit\Framework\TestCase {
     public function testGetFitness(){
         $i = new Individual();
         $this -> assertIsFloat($i->get_fitness());
-        $i->array = $this->GOAL;
+        $i->array = $this->config->GOAL;
         $this -> assertEquals(1.0, $i->get_fitness());
     }
 

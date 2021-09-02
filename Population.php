@@ -24,7 +24,7 @@ class Population{
         rsort($this->set);
     }
 
-    public function get_best_fittest_score(){
+    public function get_best_fitness_score(){
         $this->choose_fittest();
         return $this->set[0]->fitness;
     }
@@ -38,7 +38,7 @@ class Population{
     }
 
     public function is_goal_achieved(): bool{
-        if ($this->get_best_fittest_score() >= 1.0){
+        if ($this->get_best_fitness_score() >= 1.0){
             $this->goal_achieved = true;
             return true;
         }  else {
@@ -49,14 +49,17 @@ class Population{
 
     function mutate_population(){
         $fitness_quote = self::$config->FITTEST_QUOTE;
-        // first part is highest ranked on quantity of FITTEST_QUOTE
+        // first part is highest ranked on quantity of FITTEST_QUOTE and is parent for mutants
         // second part remain
         // third part is mutated
         // last part is random
-        for ($i=0; $i<$fitness_quote; $i++){
-            $this->set[$i+5] = $this->set[$i]->mutate_individual();
+        $half = intval(count($this->set)/2);
+        for ($i=$half; $i<$fitness_quote; $i++){
+            $this->set[$i] = $this->set[$i]->mutate_individual();
         }
-        $this->set[9] = new Individual();
+        for ($i=$half+$fitness_quote; $i<count($this->set); $i++){
+            $this->set[$i] = new Individual();
+        }
         $this->choose_fittest();
     }
 

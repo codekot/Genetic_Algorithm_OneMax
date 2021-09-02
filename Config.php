@@ -1,24 +1,14 @@
 <?php
 
-//$INDIVIDUAL_LENGTH = 10;
-//$GOAL = array_map(function (){return 1;}, range(1, $INDIVIDUAL_LENGTH));
-//$IND_NUMBER = 1;
-//$BORDER = 4;
-//$MUTATION_RATE = 1;
-//$FITTEST_QUOTE = 4;
-//$EVOLUTION_CYCLES = 100;
-//$CURRENT_POPULATION = [];
-//$ITERATIONS = 1000;
-
 class Config{
-    private  $INDIVIDUAL_LENGTH = 10;
+    private  $INDIVIDUAL_LENGTH = 4;
     private  $GOAL = [];
     public $IND_NUMBER = 1;
     public $POPULATION_SIZE = 10;
     public $BORDER = 4;
     public $MUTATION_RATE = 1;
-    private $FITTEST_QUOTE = 4;
-    public $EVOLUTION_CYCLES = 100;
+    private $FITTEST_QUOTE = 3;
+    public $EVOLUTION_CYCLES = 1000;
     public $CURRENT_POPULATION = [];
     public $ITERATIONS = 1000;
 
