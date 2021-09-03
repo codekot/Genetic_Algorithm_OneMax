@@ -6,7 +6,7 @@ class Config{
     public $IND_NUMBER = 1;
     public $POPULATION_SIZE = 10;
     public $BORDER = 4;
-    public $MUTATION_RATE = 1;
+    public $MUTATION_RATE = 6;
     private $FITTEST_QUOTE = 3;
     public $EVOLUTION_CYCLES = 1000;
     public $CURRENT_POPULATION = [];

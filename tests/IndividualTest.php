@@ -61,6 +61,8 @@ class IndividualTest extends \PHPUnit\Framework\TestCase {
     public function testCloneIndividual(){
         $i = new Individual();
         $i_clone = $i->clone_individual();
+        echo "\n".$i;
+        echo $i_clone;
         $this -> assertInstanceOf(
             Individual::class,
             $i_clone

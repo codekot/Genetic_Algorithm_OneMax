@@ -61,8 +61,6 @@ class PopulationTest extends \PHPUnit\Framework\TestCase
         $p->mutate_population();
         $this -> assertNotEquals($p_control,$p);
         $this -> assertEquals($this->config->POPULATION_SIZE, count($p->set));
-        $this -> assertGreaterThanOrEqual($p->get_best_fitness_score(), $p_control->get_best_fitness_score());
-
+        $this -> assertGreaterThanOrEqual($p_control->get_best_fitness_score(), $p->get_best_fitness_score());
     }
-
 }
