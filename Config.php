@@ -1,5 +1,7 @@
 <?php
 
+require_once "DefaultConfig.php";
+
 class Config{
     private  $INDIVIDUAL_LENGTH = 4;
     private  $GOAL = [];
@@ -62,6 +64,17 @@ class Config{
         }
         else {
             throw new Exception("invalid property name");
+        }
+    }
+
+    public function set_to_default($name=null){
+        if ($name=null){
+            $class_vars = get_class_vars(DefaultConfig);
+            foreach($class_vars as $name => $value){
+                $this->$name = $value;
+            }
+        } else {
+            $this->$name = DefaultConfig::$name;
         }
     }
 }

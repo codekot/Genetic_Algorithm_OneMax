@@ -3,7 +3,7 @@
 
 class DefaultConfig
 {
-    public  $INDIVIDUAL_LENGTH = 4;
+    public $INDIVIDUAL_LENGTH = 4;
     public $IND_NUMBER = 1;
     public $POPULATION_SIZE = 10;
     public $BORDER = 4;
