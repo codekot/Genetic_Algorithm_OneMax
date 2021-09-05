@@ -35,6 +35,7 @@ class ConfigTest extends \PHPUnit\Framework\TestCase {
         $this -> assertEquals(12, count($c->GOAL));
 
         $this -> assertEquals($c->GOAL, $c2->GOAL);
+        $c->set_to_default("INDIVIDUAL_LENGTH");
     }
 
     function testSetFittestQuote(){

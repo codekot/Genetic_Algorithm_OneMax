@@ -68,13 +68,17 @@ class Config{
     }
 
     public function set_to_default($name=null){
-        if ($name=null){
+        if ($name==null){
             $class_vars = get_class_vars(DefaultConfig);
             foreach($class_vars as $name => $value){
-                $this->$name = $value;
+                $this->{$name} = $value;
             }
         } else {
-            $this->$name = DefaultConfig::$name;
+            $this->{$name} = DefaultConfig::$$name;
         }
     }
 }
+
+echo DefaultConfig::$INDIVIDUAL_LENGTH;
+$c = Config::getInstance();
+
