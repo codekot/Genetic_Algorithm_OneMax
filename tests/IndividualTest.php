@@ -6,12 +6,17 @@ require_once "Individual.php";
 class IndividualTest extends \PHPUnit\Framework\TestCase {
 
     private $config;
-    private $INDIVIDUAL_LENGTH;
-    private $GOAL;
+    //private $INDIVIDUAL_LENGTH;
+    //private $GOAL;
 
     protected function setUp(): void
     {
         $this->config = Config::getInstance();
+        echo "Setting up ...";
+        echo "INDIVIDUAL_LENGTH ".$this->config->INDIVIDUAL_LENGTH."\n";
+        echo "GOAL";
+        print_r($this->config->GOAL);
+        echo "Set up complete";
 //        $this->INDIVIDUAL_LENGTH = $this->config->INDIVIDUAL_LENGTH;
 //        $this->GOAL = $this->config->GOAL;
     }
@@ -63,6 +68,9 @@ class IndividualTest extends \PHPUnit\Framework\TestCase {
         $i_clone = $i->clone_individual();
         echo "\n".$i;
         echo $i_clone;
+        echo "GOAL";
+        print_r(Individual::$config->GOAL);
+        echo Individual::$config->INDIVIDUAL_LENGTH;
         $this -> assertInstanceOf(
             Individual::class,
             $i_clone

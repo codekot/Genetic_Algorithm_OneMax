@@ -68,17 +68,31 @@ class Config{
     }
 
     public function set_to_default($name=null){
-        if ($name==null){
-            $class_vars = get_class_vars(DefaultConfig);
-            foreach($class_vars as $name => $value){
-                $this->{$name} = $value;
+        if (!$name) {
+            $class_vars = get_class_vars(class: "DefaultConfig");
+            foreach ($class_vars as $name => $value) {
+                $this->__set($name, $value);
             }
-        } else {
-            $this->{$name} = DefaultConfig::$$name;
+        } elseif (!property_exists($this, $name)){
+            throw new Exception("invalid property name");
+        } elseif ($name == "INDIVIDUAL_LENGTH") {
+            $this->__set($name, DefaultConfig::$$name);
         }
     }
 }
 
-echo DefaultConfig::$INDIVIDUAL_LENGTH;
 $c = Config::getInstance();
+print_r($c->setGoal());
+print_r($c->GOAL);
+
+$c->INDIVIDUAL_LENGTH = 22;
+echo $c->INDIVIDUAL_LENGTH;
+print_r($c->GOAL);
+
+$c->set_to_default("INDIVIDUAL_LENGTH");
+echo $c->INDIVIDUAL_LENGTH;
+print_r($c->GOAL);
+
+echo $c->INDIVIDUAL_LENGTH;
+print_r($c->GOAL);
 
