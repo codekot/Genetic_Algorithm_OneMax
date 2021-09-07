@@ -64,6 +64,7 @@ class Individual {
         echo "mutation_quantity".$mutation_quantity;
 
         // choose which genes will be mutated
+        // TODO: Fix repetition in index array
         $index_array = [];
         for($i=0; $i<$mutation_quantity; $i++){
             $index_value = rand(0, $ind_length-1);

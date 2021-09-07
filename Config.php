@@ -3,7 +3,7 @@
 require_once "DefaultConfig.php";
 
 class Config{
-    private  $INDIVIDUAL_LENGTH = 4;
+    private  $INDIVIDUAL_LENGTH = 8;
     private  $GOAL = [];
     public $IND_NUMBER = 1;
     public $POPULATION_SIZE = 10;
@@ -73,9 +73,7 @@ class Config{
             foreach ($class_vars as $name => $value) {
                 $this->__set($name, $value);
             }
-        } elseif (!property_exists($this, $name)){
-            throw new Exception("invalid property name");
-        } elseif ($name == "INDIVIDUAL_LENGTH") {
+        } else {
             $this->__set($name, DefaultConfig::$$name);
         }
     }
