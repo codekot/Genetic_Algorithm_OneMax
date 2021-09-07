@@ -37,6 +37,7 @@ class Config{
     }
 
     public function __set($name, $value){
+        // TODO add check for mutation rate
         if(!property_exists($this, $name)){
             throw new Exception("invalid property name");
         } elseif ($name == "INDIVIDUAL_LENGTH"){
@@ -78,19 +79,3 @@ class Config{
         }
     }
 }
-
-$c = Config::getInstance();
-print_r($c->setGoal());
-print_r($c->GOAL);
-
-$c->INDIVIDUAL_LENGTH = 22;
-echo $c->INDIVIDUAL_LENGTH;
-print_r($c->GOAL);
-
-$c->set_to_default("INDIVIDUAL_LENGTH");
-echo $c->INDIVIDUAL_LENGTH;
-print_r($c->GOAL);
-
-echo $c->INDIVIDUAL_LENGTH;
-print_r($c->GOAL);
-
