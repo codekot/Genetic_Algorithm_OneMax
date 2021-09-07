@@ -59,16 +59,13 @@ class Individual {
     {
         $mutation_rate = self::$config->MUTATION_RATE;
         $ind_length = self::$config->INDIVIDUAL_LENGTH;
-        // choose how many mutation
-        $mutation_quantity = rand(1, $mutation_rate);
-        echo "mutation_quantity".$mutation_quantity;
+        echo "mutation_rate ".$mutation_rate;
 
         // choose which genes will be mutated
-        // TODO: Fix repetition in index array
         $index_array = [];
-        for($i=0; $i<$mutation_quantity; $i++){
+        for($i=0; $i<$mutation_rate; $i++){
             $index_value = rand(0, $ind_length-1);
-            if(!array_search($index_value, $index_array)) {
+            if(!in_array($index_value, $index_array)) {
                 $index_array[] = $index_value;
             }
         }

@@ -10,9 +10,5 @@ class DefaultConfig
     public static $MUTATION_RATE = 6;
     public static $FITTEST_QUOTE = 3;
     public static $EVOLUTION_CYCLES = 1000;
-    public static $CURRENT_POPULATION = [];
     public static $ITERATIONS = 1000;
 }
-
-$i = "INDIVIDUAL_LENGTH";
-echo DefaultConfig::$$i;
