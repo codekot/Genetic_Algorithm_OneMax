@@ -9,7 +9,7 @@ class Config
     public $IND_NUMBER = 1;
     public $POPULATION_SIZE = 10;
     public $BORDER = 4;
-    public $MUTATION_RATE = 6;
+    public $MUTATION_RATE = 2;
     private $FITTEST_QUOTE = 3;
     public $EVOLUTION_CYCLES = 1000;
     public $CURRENT_POPULATION = [];
@@ -51,7 +51,11 @@ class Config
         } elseif ($name == "GOAL") {
             throw new Exception("access denied, to change GOAL, change INDIVIDUAL_LENGTH");
         } elseif ($name == "FITTEST_QUOTE") {
-            throw new Exception("error");
+            if ($value > intval($this->POPULATION_SIZE/2)){
+                throw new Exception("error");
+            } else {
+                $this->set_value($name, $value);
+            }
         } elseif ($name == "MUTATION_RATE"){
             if ($value > $this->INDIVIDUAL_LENGTH){
                 throw new Exception("Mutation rate couldn't be greater than Individual length");

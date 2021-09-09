@@ -8,6 +8,7 @@ class Population{
 
     public array $set;
     public bool $goal_achieved = false;
+    public int $steps = 0;
 
     public function __construct(){
        if(!self::$config){
@@ -48,16 +49,16 @@ class Population{
     }
 
     function mutate_population(){
-        $fitness_quote = self::$config->FITTEST_QUOTE;
+        $fittest_quote = self::$config->FITTEST_QUOTE;
         // first part is highest ranked on quantity of FITTEST_QUOTE and is parent for mutants
         // second part remain
         // third part is mutated
         // last part is random
         $half = intval(count($this->set)/2);
-        for ($i=$half; $i<$fitness_quote; $i++){
+        for ($i=$half; $i<$fittest_quote; $i++){
             $this->set[$i] = $this->set[$i]->mutate_individual();
         }
-        for ($i=$half+$fitness_quote; $i<count($this->set); $i++){
+        for ($i=$half+$fittest_quote; $i<count($this->set); $i++){
             $this->set[$i] = new Individual();
         }
         $this->choose_fittest();

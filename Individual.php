@@ -59,8 +59,6 @@ class Individual {
     {
         $mutation_rate = self::$config->MUTATION_RATE;
         $ind_length = self::$config->INDIVIDUAL_LENGTH;
-        echo "mutation_rate ".$mutation_rate;
-
         // choose which genes will be mutated
         $index_array = [];
         for($i=0; $i<$mutation_rate; $i++){
@@ -69,8 +67,6 @@ class Individual {
                 $index_array[] = $index_value;
             }
         }
-        echo "index_array";
-        print_r($index_array);
 
         // mutate selected genes with some probability
         $clone = $this->clone_individual();
