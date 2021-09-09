@@ -79,3 +79,8 @@ class Individual {
         return $clone;
     }
 }
+
+$i = new Individual();
+echo $i;
+$i2 = $i->mutate_individual();
+echo $i2;
