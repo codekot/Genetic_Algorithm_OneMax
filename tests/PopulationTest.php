@@ -56,6 +56,7 @@ class PopulationTest extends \PHPUnit\Framework\TestCase
     }
 
     function testMutatePopulation(){
+        //TODO: test that needed part of population changing
         $p = new Population();
         $p_control = clone $p;
         $p->mutate_population();

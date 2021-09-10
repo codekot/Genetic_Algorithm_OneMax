@@ -9,7 +9,7 @@ class Config
     public $IND_NUMBER = 1;
     public $POPULATION_SIZE = 10;
     public $BORDER = 4;
-    public $MUTATION_RATE = 2;
+    public $MUTATION_RATE = 3;
     private $FITTEST_QUOTE = 4;
     public $EVOLUTION_CYCLES = 1000;
     public $CURRENT_POPULATION = [];

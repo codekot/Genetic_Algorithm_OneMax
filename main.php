@@ -8,18 +8,18 @@ $population = new Population();
 $config = Config::getInstance();
 
 $index = 0;
-for ($i=0; $i<25; $i++){
-    $population -> mutate_population();
-    echo $population->get_best_fitness_score()."<br>";
-    echo $population."<br>";
-}
-//while(!$population->is_goal_achieved() && $index < $config->EVOLUTION_CYCLES) {
-//    echo "STEP ".$index."\n";
-//    $population = evolution_step($population);
-//    echo $population->get_best_fitness_score();
-//    //echo $population;
-//    $index++;
+//for ($i=0; $i<25; $i++){
+//    $population -> mutate_population();
+//    echo $population->get_best_fitness_score()."<br>";
+//    echo $population."<br>";
 //}
+while(!$population->is_goal_achieved() && $index < $config->EVOLUTION_CYCLES) {
+    echo "STEP ".$index."\n";
+    $population = evolution_step($population);
+    echo $population->get_best_fitness_score();
+    //echo $population;
+    $index++;
+}
 
 
 function evolution_step($population){

@@ -50,12 +50,15 @@ class Population{
 
     function mutate_population(){
         $fittest_quote = self::$config->FITTEST_QUOTE;
+        //echo "FQ ".$fittest_quote."\n";
         // first part is highest ranked on quantity of FITTEST_QUOTE and is parent for mutants
         // second part remain
         // third part is mutated
         // last part is random
         $half = intval(count($this->set)/2);
-        for ($i=$half; $i<$fittest_quote; $i++){
+        //echo "HALF ".$half."\n";
+        for ($i=$half; $i<$fittest_quote+$half; $i++){
+            //echo "I ".$i."\n";
             $this->set[$i] = $this->set[$i]->mutate_individual();
         }
         for ($i=$half+$fittest_quote; $i<count($this->set); $i++){
@@ -65,3 +68,8 @@ class Population{
     }
 
 }
+
+$p = new Population();
+echo $p;
+$p->mutate_population();
+echo $p;
