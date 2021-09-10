@@ -67,6 +67,7 @@ class Individual {
                 $index_array[] = $index_value;
             }
         }
+        //print_r($index_array);
 
         // mutate selected genes with some probability
         $clone = $this->clone_individual();
@@ -80,3 +81,7 @@ class Individual {
     }
 }
 
+//$i = new Individual();
+//echo $i;
+//$c = $i->mutate_individual();
+//echo $c;

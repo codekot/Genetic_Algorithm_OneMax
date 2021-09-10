@@ -4,14 +4,14 @@ require_once "DefaultConfig.php";
 
 class Config
 {
-    private $INDIVIDUAL_LENGTH = 10;
+    private $INDIVIDUAL_LENGTH = 20;
     private $GOAL = [];
     public $IND_NUMBER = 1;
     public $POPULATION_SIZE = 10;
     public $BORDER = 4;
-    public $MUTATION_RATE = 3;
+    public $MUTATION_RATE = 2;
     private $FITTEST_QUOTE = 4;
-    public $EVOLUTION_CYCLES = 1000;
+    public $EVOLUTION_CYCLES = 10000;
     public $CURRENT_POPULATION = [];
     public $ITERATIONS = 1000;
 

@@ -59,7 +59,8 @@ class Population{
         //echo "HALF ".$half."\n";
         for ($i=$half; $i<$fittest_quote+$half; $i++){
             //echo "I ".$i."\n";
-            $this->set[$i] = $this->set[$i]->mutate_individual();
+            $this->set[$i] = $this->set[$i-$half]->mutate_individual();
+            //echo $this->set[$i];
         }
         for ($i=$half+$fittest_quote; $i<count($this->set); $i++){
             $this->set[$i] = new Individual();
@@ -69,7 +70,7 @@ class Population{
 
 }
 
-$p = new Population();
-echo $p;
-$p->mutate_population();
-echo $p;
+//$p = new Population();
+//echo $p;
+//$p->mutate_population();
+//echo $p;
