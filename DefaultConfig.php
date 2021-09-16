@@ -8,7 +8,7 @@ class DefaultConfig
     public static $POPULATION_SIZE = 10;
     public static $BORDER = 4;
     public static $MUTATION_RATE = 2;
-    public static $FITTEST_QUOTE = 3;
+    public static $FITTEST_QUOTE = 4;
     public static $EVOLUTION_CYCLES = 1000;
     public static $ITERATIONS = 1000;
 }

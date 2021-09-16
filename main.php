@@ -22,32 +22,32 @@ while(!$population->is_goal_achieved() && $index < $config->EVOLUTION_CYCLES) {
 }
 
 
-function evolution_step($population){
-    $population->choose_fittest();
-    // should break out of the cycle immediately as fittest individual occur
-    if($population->is_goal_achieved()){
-        echo "BREAK\n";
-        return $population;
-    }
-    $population->mutate_population();
-    echo $population;
-    return $population;
-}
-
-function evolution_cycle(){
-
-    $IND_NUMBER = 1;
-    $population = new Population();
-    $index = 0;
-    while(!$population->is_goal_achieved() && $index < $EVOLUTION_CYCLES) {
-        echo "STEP ".$index."\n";
-        $population = evolution_step($population);
-        echo $population->get_best_fittest_score();
-        //echo $population;
-        $index++;
-    }
-    return $index;
-}
+//function evolution_step($population){
+//    $population->choose_fittest();
+//    // should break out of the cycle immediately as fittest individual occur
+//    if($population->is_goal_achieved()){
+//        echo "BREAK\n";
+//        return $population;
+//    }
+//    $population->mutate_population();
+//    echo $population;
+//    return $population;
+//}
+//
+//function evolution_cycle(){
+//
+//    $IND_NUMBER = 1;
+//    $population = new Population();
+//    $index = 0;
+//    while(!$population->is_goal_achieved() && $index < $EVOLUTION_CYCLES) {
+//        echo "STEP ".$index."\n";
+//        $population = evolution_step($population);
+//        echo $population->get_best_fittest_score();
+//        //echo $population;
+//        $index++;
+//    }
+//    return $index;
+//}
 
 function main(){
     $config = Config::getInstance();

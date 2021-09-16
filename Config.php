@@ -4,7 +4,7 @@ require_once "DefaultConfig.php";
 
 class Config
 {
-    private $INDIVIDUAL_LENGTH = 20;
+    private $INDIVIDUAL_LENGTH = 12;
     private $GOAL = [];
     public $IND_NUMBER = 1;
     public $POPULATION_SIZE = 10;
