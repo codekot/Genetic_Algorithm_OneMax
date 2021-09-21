@@ -6,6 +6,7 @@ class Evolution
 {
     static private $config = null;
     public $population;
+    public $steps;
 
     public function __construct(){
         if(!self::$config){
@@ -23,7 +24,7 @@ class Evolution
             return;
         }
         $this->population->mutate_population();
-        echo $this->population;
+        //echo $this->population;
         //return $this->population;
         return;
     }
@@ -33,13 +34,14 @@ class Evolution
         //$IND_NUMBER = 1;
         //$population = new Population();
         $index = 0;
-        while(!$this->population->is_goal_achieved() && $index < $config->EVOLUTION_CYCLES) {
-            echo "STEP ".$index."\n";
+        while(!$this->population->is_goal_achieved() && $index < self::$config->EVOLUTION_CYCLES) {
+            //echo "STEP ".$index."\n";
             $this->evolution_step();
-            echo $this->population->get_best_fittest_score();
+            //echo $this->population->get_best_fitness_score();
             //echo $population;
             $index++;
         }
+        $this->steps = $index;
         return $index;
     }
 }
