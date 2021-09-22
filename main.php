@@ -85,10 +85,13 @@ function main(){
     $average = array_sum($results)/count($results);
     $max = max($results);
     $min = min($results);
-    echo json_encode($results)."\n";
-    echo "Average number of steps to achieve goal fitness $average\n";
-    echo "Minimum number of steps to achieve goal fitness $min\n";
-    echo "Maximum number of steps to achieve goal fitness $max\n";
+    //echo json_encode($results)."\n";
+    $result = "";
+    $result .= "<p>$iterations iterations implemented</p>";
+    $result .= "<p>Average number of steps to achieve goal fitness $average</p>";
+    $result .= "<p>Minimum number of steps to achieve goal fitness $min</p>";
+    $result .= "<p>Maximum number of steps to achieve goal fitness $max</p>";
+    return $result;
 }
 
 main();
