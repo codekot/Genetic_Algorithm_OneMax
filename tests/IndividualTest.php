@@ -1,7 +1,7 @@
 <?php
 
-require_once "Config.php";
-require_once "Individual.php";
+require_once "classes\Config.php";
+require_once "classes\Individual.php";
 
 class IndividualTest extends \PHPUnit\Framework\TestCase {
 

@@ -1,7 +1,7 @@
 <?php
 
-require_once "Config.php";
-require_once "Population.php";
+require_once "classes\Config.php";
+require_once "classes\Population.php";
 
 
 class PopulationTest extends \PHPUnit\Framework\TestCase
