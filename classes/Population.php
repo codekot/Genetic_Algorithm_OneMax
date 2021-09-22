@@ -3,14 +3,13 @@
 require_once "Config.php";
 require_once "Individual.php";
 
-// TODO: implement mutation with clossing
+// TODO: implement mutation with crossing
 
 class Population{
-    static private $config = null;
+    static private ?Config $config = null;
 
     public array $set;
     public bool $goal_achieved = false;
-    public int $steps = 0;
 
     public function __construct(){
        if(!self::$config){
@@ -52,17 +51,13 @@ class Population{
 
     function mutate_population(){
         $fittest_quote = self::$config->FITTEST_QUOTE;
-        //echo "FQ ".$fittest_quote."\n";
         // first part is highest ranked on quantity of FITTEST_QUOTE and is parent for mutants
         // second part remain
         // third part is mutated
         // last part is random
         $half = intval(count($this->set)/2);
-        //echo "HALF ".$half."\n";
         for ($i=$half; $i<$fittest_quote+$half; $i++){
-            //echo "I ".$i."\n";
             $this->set[$i] = $this->set[$i-$half]->mutate_individual();
-            //echo $this->set[$i];
         }
         for ($i=$half+$fittest_quote; $i<count($this->set); $i++){
             $this->set[$i] = new Individual();
@@ -71,8 +66,3 @@ class Population{
     }
 
 }
-
-//$p = new Population();
-//echo $p;
-//$p->mutate_population();
-//echo $p;

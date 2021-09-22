@@ -22,7 +22,6 @@ class Individual {
 
     static private function generate_array(): array{
         $ind_length = self::$config->INDIVIDUAL_LENGTH;
-        //echo 'IND_L '.self::$config->INDIVIDUAL_LENGTH."\n";
         $result = [];
         for($i=0; $i<$ind_length; $i++){
             $result[] = array_rand([0,1]);
@@ -67,7 +66,6 @@ class Individual {
                 $index_array[] = $index_value;
             }
         }
-        //print_r($index_array);
 
         // mutate selected genes with some probability
         $clone = $this->clone_individual();
@@ -80,8 +78,3 @@ class Individual {
         return $clone;
     }
 }
-
-//$i = new Individual();
-//echo $i;
-//$c = $i->mutate_individual();
-//echo $c;

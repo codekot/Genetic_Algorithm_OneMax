@@ -24,21 +24,14 @@ class Evolution
             return;
         }
         $this->population->mutate_population();
-        //echo $this->population;
-        //return $this->population;
         return;
     }
 
     public function evolution_cycle(){
 
-        //$IND_NUMBER = 1;
-        //$population = new Population();
         $index = 0;
         while(!$this->population->is_goal_achieved() && $index < self::$config->EVOLUTION_CYCLES) {
-            //echo "STEP ".$index."\n";
             $this->evolution_step();
-            //echo $this->population->get_best_fitness_score();
-            //echo $population;
             $index++;
         }
         $this->steps = $index;
