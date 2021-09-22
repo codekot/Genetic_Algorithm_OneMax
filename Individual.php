@@ -5,7 +5,7 @@ require_once "Utils.php";
 
 class Individual {
     static private int $current_number = 1;
-    static public $config = null;
+    static public ?Config $config = null;
 
     public float $fitness;
     public int $personal_number;

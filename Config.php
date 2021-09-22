@@ -4,18 +4,16 @@ require_once "DefaultConfig.php";
 
 class Config
 {
-    private $INDIVIDUAL_LENGTH = 10;
-    private $GOAL = [];
-    public $IND_NUMBER = 1;
-    public $POPULATION_SIZE = 10;
-    //public $BORDER = 4;
-    public $MUTATION_RATE = 2;
-    private $FITTEST_QUOTE = 4;
-    public $EVOLUTION_CYCLES = 10000;
-    //public $CURRENT_POPULATION = [];
-    public $ITERATIONS = 1000;
+    private int $INDIVIDUAL_LENGTH = 10;
+    private array $GOAL = [];
+    public int $IND_NUMBER = 1;
+    public int $POPULATION_SIZE = 10;
+    public int $MUTATION_RATE = 2;
+    private int $FITTEST_QUOTE = 4;
+    public int $EVOLUTION_CYCLES = 10000;
+    public int $ITERATIONS = 1000;
 
-    private static $instance = null;
+    private static ?Config $instance = null;
 
     public static function getInstance(): Config
     {
@@ -70,6 +68,9 @@ class Config
         $this->{$name} = $value;
     }
 
+    /**
+     * @throws Exception
+     */
     public function __get($name)
     {
         if ($name == "INDIVIDUAL_LENGTH") {
@@ -83,6 +84,9 @@ class Config
         }
     }
 
+    /**
+     * @throws Exception
+     */
     public function set_to_default($name = null)
     {
         if (!$name) {
