@@ -1,7 +1,7 @@
 <?php
 
-require_once "classes\Config.php";
-require_once "classes\Individual.php";
+require_once 'autoload.php';
+
 
 class IndividualTest extends \PHPUnit\Framework\TestCase {
 

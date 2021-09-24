@@ -1,6 +1,6 @@
 <?php
 
-require_once "classes\Config.php";
+require_once 'autoload.php';
 
 class ConfigTest extends \PHPUnit\Framework\TestCase {
 
