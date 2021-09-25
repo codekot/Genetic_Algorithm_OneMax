@@ -1,0 +1,12 @@
+{
+    "autoload": {
+        "psr-4": {
+            "app\\": "./"
+        },
+        "files": ["./utils.php", "./main.php"]
+
+},
+    "require-dev": {
+        "phpunit/phpunit": "9.5"
+    }
+}
