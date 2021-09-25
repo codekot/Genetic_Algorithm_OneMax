@@ -1,5 +1,7 @@
 <?php
 
+namespace app\classes;
+
 require_once "DefaultConfig.php";
 
 class Config

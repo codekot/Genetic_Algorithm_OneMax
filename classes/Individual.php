@@ -1,6 +1,7 @@
 <?php
 
-require_once "Config.php";
+namespace app\classes;
+//require_once "Config.php";
 require_once "utils.php";
 
 class Individual {
