@@ -1,9 +1,14 @@
 <?php
 
-require_once "classes\Config.php";
-require_once "classes\Individual.php";
-require_once "classes\Population.php";
-require_once "classes\Evolution.php";
+//namespace app;
+//require_once "classes\Config.php";
+//require_once "classes\Individual.php";
+//require_once "classes\Population.php";
+//require_once "classes\Evolution.php";
+
+use app\classes\Config;
+use app\classes\Population;
+use app\classes\Evolution;
 
 $population = new Population();
 $config = Config::getInstance();
