@@ -2,11 +2,13 @@
 
 require_once __DIR__."/vendor/autoload.php";
 
+use app\web\Application;
 
-if (preg_match('/\.(?:png|jpg|jpeg|gif)$/', $_SERVER["REQUEST_URI"])) {
-    return false;    // serve the requested resource as-is.
-} else {
-    echo "<h1>OneMax Algorithm Implementation</h1>";
-    $result = main();
-    echo $result;
-}
+$app = new Application();
+
+$app->router->get('/', function (){
+    return main();
+});
+
+
+$app->run();
