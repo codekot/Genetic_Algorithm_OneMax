@@ -6,6 +6,6 @@
 <h2>OneMax Genetic Algorithm Implementation</h2>
 
 <?php
-echo main();
+echo $content;
 ?>
 
