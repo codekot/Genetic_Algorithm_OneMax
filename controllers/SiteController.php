@@ -7,8 +7,9 @@ use app\web\Application;
 class SiteController
 {
     public static function home(){
+        $content = main();
         $params = [
-            'name' => 'Sean'
+            'content' => $content
         ];
         return Application::$app->router->renderView('home', $params);
 
