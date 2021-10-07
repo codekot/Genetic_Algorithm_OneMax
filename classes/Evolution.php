@@ -1,5 +1,7 @@
 <?php
 
+namespace app\classes;
+//require_once "Population.php";
 
 class Evolution
 {
@@ -23,10 +25,11 @@ class Evolution
             return;
         }
         $this->population->mutate_population();
+        return;
     }
 
-    public function evolution_cycle(): int
-    {
+    public function evolution_cycle(){
+
         $index = 0;
         while(!$this->population->is_goal_achieved() && $index < self::$config->EVOLUTION_CYCLES) {
             $this->evolution_step();

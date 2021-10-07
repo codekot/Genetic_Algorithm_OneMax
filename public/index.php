@@ -11,7 +11,7 @@ $app = new Application(dirname(__DIR__));
 //    return main();
 //});
 
-$app->router->get('/', [SiteController::home, 'home']);
+$app->router->get('/', [SiteController::class, 'home']);
 
 $app->router->get('/about', 'about');
 
