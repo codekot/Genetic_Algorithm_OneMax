@@ -8,10 +8,6 @@ class Router
     public Request $request;
     public Response $response;
 
-    /**
-     * Router constructor.
-     * @param Request $request
-     */
     public function __construct(Request $request, Response $response)
     {
         $this->request = $request;

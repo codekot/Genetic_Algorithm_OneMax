@@ -1,8 +1,6 @@
 <?php
 
 namespace app\classes;
-//require_once "Config.php";
-//require_once "utils.php";
 
 class Individual {
     static private int $current_number = 1;

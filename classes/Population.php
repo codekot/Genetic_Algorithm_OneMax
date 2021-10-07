@@ -2,8 +2,6 @@
 
 namespace app\classes;
 
-//require_once "Config.php";
-//require_once "Individual.php";
 
 // TODO: implement mutation with crossing
 

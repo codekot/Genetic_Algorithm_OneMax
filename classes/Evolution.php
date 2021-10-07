@@ -1,7 +1,6 @@
 <?php
 
 namespace app\classes;
-//require_once "Population.php";
 
 class Evolution
 {
