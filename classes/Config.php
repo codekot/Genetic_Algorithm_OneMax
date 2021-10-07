@@ -1,7 +1,5 @@
 <?php
 
-require_once "DefaultConfig.php";
-
 class Config
 {
     private int $INDIVIDUAL_LENGTH = 10;

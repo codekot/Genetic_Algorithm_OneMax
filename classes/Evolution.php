@@ -1,11 +1,10 @@
 <?php
 
-require_once "Population.php";
 
 class Evolution
 {
-    static private $config = null;
-    public $population;
+    static private ?Config $config = null;
+    public Population $population;
     public $steps;
 
     public function __construct(){
@@ -24,11 +23,10 @@ class Evolution
             return;
         }
         $this->population->mutate_population();
-        return;
     }
 
-    public function evolution_cycle(){
-
+    public function evolution_cycle(): int
+    {
         $index = 0;
         while(!$this->population->is_goal_achieved() && $index < self::$config->EVOLUTION_CYCLES) {
             $this->evolution_step();
