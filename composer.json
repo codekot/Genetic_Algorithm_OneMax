@@ -3,7 +3,7 @@
         "psr-4": {
             "app\\": "./"
         },
-        "files": ["./utils.php", "./main.php"]
+        "files": ["./utils.php"]
 
 },
     "require-dev": {
