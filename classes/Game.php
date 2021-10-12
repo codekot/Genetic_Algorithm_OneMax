@@ -7,6 +7,7 @@ namespace app\classes;
 class Game
 {
     public static function process(){
+        $db = Database::getInstance();
         $config = Config::getInstance();
         $iterations  = $config->ITERATIONS;
         $results = [];
@@ -18,6 +19,13 @@ class Game
         $average = array_sum($results)/count($results);
         $max = max($results);
         $min = min($results);
+//        $db_result = [
+//            "max" => $max,
+//            "min" => $min,
+//            "average" => $average
+//        ];
+        $db_result = compact($max, $min, $average);
+        $db->insert($db_result);
         //echo json_encode($results)."\n";
         $result = "";
         $result .= "<p>$iterations iterations implemented</p>";
