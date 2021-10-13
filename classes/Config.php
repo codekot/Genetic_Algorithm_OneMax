@@ -4,14 +4,14 @@ namespace app\classes;
 
 class Config
 {
-    private int $INDIVIDUAL_LENGTH = 10;
-    private array $GOAL = [];
-    public int $IND_NUMBER = 1;
-    public int $POPULATION_SIZE = 10;
-    public int $MUTATION_RATE = 2;
-    private int $FITTEST_QUOTE = 4;
-    public int $EVOLUTION_CYCLES = 10000;
-    public int $ITERATIONS = 1000;
+    private int $INDIVIDUAL_LENGTH = 10; //length of array - individual
+    private array $GOAL = []; // goal array - the fittest individual
+    public int $IND_NUMBER = 1; // starting number of individuals
+    public int $POPULATION_SIZE = 20;
+    public int $MUTATION_RATE = 2; // number of 'genes' to be mutated in individual
+    private int $FITTEST_QUOTE = 4; // number of top fittest individuals that will go to next evolution cycle
+    public int $EVOLUTION_CYCLES = 1000; //define the maximum number of evolutionary cycles
+    public int $ITERATIONS = 1000; //number of evolutions to be implemented
 
     private static ?Config $instance = null;
 

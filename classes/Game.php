@@ -6,6 +6,11 @@ namespace app\classes;
 
 class Game
 {
+    public static function variate(){
+        $config = Config::getInstance();
+
+    }
+
     public static function process(){
         $db = Database::getInstance();
         $config = Config::getInstance();
@@ -33,6 +38,8 @@ class Game
         $result .= "<p>Minimum number of steps to achieve goal fitness $min</p>";
         $result .= "<p>Maximum number of steps to achieve goal fitness $max</p>";
         return $result;
+        $from_db = $db->getAll();
+        echo "<script> console.log($from_db)</script>";
     }
 
 }
