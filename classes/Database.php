@@ -18,9 +18,9 @@ class Database
         return static::$instance;
     }
 
-    public function insert(array $data): void
+    public function insert(array $value): void
     {
-        $this->data[$this->id] = $data;
+        $this->data[$this->id] = $value;
         $this->id++;
     }
 

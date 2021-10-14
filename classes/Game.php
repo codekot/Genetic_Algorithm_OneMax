@@ -24,22 +24,15 @@ class Game
         $average = array_sum($results)/count($results);
         $max = max($results);
         $min = min($results);
-//        $db_result = [
-//            "max" => $max,
-//            "min" => $min,
-//            "average" => $average
-//        ];
-        $db_result = compact($max, $min, $average);
+        $db_result = compact('max', 'min', 'average');
         $db->insert($db_result);
-        //echo json_encode($results)."\n";
         $result = "";
         $result .= "<p>$iterations iterations implemented</p>";
         $result .= "<p>Average number of steps to achieve goal fitness $average</p>";
         $result .= "<p>Minimum number of steps to achieve goal fitness $min</p>";
         $result .= "<p>Maximum number of steps to achieve goal fitness $max</p>";
         return $result;
-        $from_db = $db->getAll();
-        echo "<script> console.log($from_db)</script>";
+
     }
 
 }
